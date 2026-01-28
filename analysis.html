@@ -447,17 +447,17 @@
             <p class="header-subtitle">Comprehensive comparison with corrected assumptions for Friday's discussion</p>
             
             <div class="tab-nav">
-                <button class="tab-button active" onclick="showTab('misconceptions')">
+                <button class="tab-button" onclick="showTab(event, 'misconceptions')">
                     ⚠️ Critical Corrections
                 </button>
-                <button class="tab-button" onclick="showTab('comparison')">
+                <button class="tab-button active" onclick="showTab(event, 'comparison')">
                     📊 Architecture Comparison
                 </button>
             </div>
         </div>
         
         <!-- TAB 1: MISCONCEPTIONS -->
-        <div id="misconceptions" class="tab-content active">
+        <div id="misconceptions" class="tab-content">
             <div class="alert-box error">
                 <div class="alert-title">
                     ❌ Critical Misconceptions in Current Document
@@ -544,7 +544,7 @@
         </div>
         
         <!-- TAB 2: COMPARISON -->
-        <div id="comparison" class="tab-content">
+        <div id="comparison" class="tab-content active">
             <div class="routes-grid">
                 <!-- ROUTE 1 -->
                 <div class="route-card">
@@ -876,21 +876,21 @@
                 </p>
             </div>
         </div>
-    <script>
-        function showTab(tabName) {
+       <script>
+        function showTab(evt, tabName) {
             // Hide all tab contents
             const contents = document.querySelectorAll('.tab-content');
             contents.forEach(content => content.classList.remove('active'));
-            
+    
             // Remove active class from all buttons
             const buttons = document.querySelectorAll('.tab-button');
             buttons.forEach(button => button.classList.remove('active'));
-            
+    
             // Show selected tab content
             document.getElementById(tabName).classList.add('active');
-            
+    
             // Add active class to clicked button
-            event.target.classList.add('active');
+            evt.currentTarget.classList.add('active');
         }
     </script>
 </body>
